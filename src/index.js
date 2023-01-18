@@ -55,7 +55,7 @@ const defaultOptions = {
 //
 export default {
   init(pixelId, advancedMatching = {}, options = defaultOptions) {
-    if (typeof window === 'undefined') {
+    if (typeof window === 'undefined' || typeof window.fbq !== 'undefined') {
       initialized = false;
       return;
     }
@@ -63,7 +63,6 @@ export default {
     initialized = window && !!window.fbq;
     /* eslint-disable */
     const fbq = window?.fbq;
-    if (typeof fbq === 'undefined') {
       !(function (f, b, e, v, n, t, s) {
         if (f.fbq) return;
         n = f.fbq = function () {
@@ -101,7 +100,6 @@ export default {
         initialized = true;
         debug = options.debug;
       }
-    }
   },
 
   pageView() {
