@@ -55,7 +55,7 @@ const defaultOptions = {
 //
 export default {
   init(pixelId, advancedMatching = {}, options = defaultOptions) {
-    if (typeof window === 'undefined' || typeof window.fbq !== 'undefined') {
+    if (typeof window === 'undefined') {
       initialized = false;
       return;
     }
